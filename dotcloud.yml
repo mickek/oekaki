@@ -2,3 +2,4 @@ www:
   type: python
 db:
   type: mysql
+
