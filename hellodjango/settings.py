@@ -15,8 +15,8 @@ MANAGERS = ADMINS
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'template1',
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'hellodjango',
         'USER': env['DOTCLOUD_DB_SQL_LOGIN'],
         'PASSWORD': env['DOTCLOUD_DB_SQL_PASSWORD'],
         'HOST': env['DOTCLOUD_DB_SQL_HOST'],
