@@ -2,7 +2,7 @@ from default import *
 
 DATABASES = {
     'default': {
-        'ENGINE': 'sqlite3',
+        'ENGINE': 'django.db.backends.sqlite3',
         'NAME': 'local.sqlite',
         'USER': '',
         'PASSWORD': '',

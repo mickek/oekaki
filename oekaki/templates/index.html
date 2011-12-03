@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+{% load cms_tags sekizai_tags %}
+
+{% block header %}
+    <h1>{% placeholder "header-content" %}</h1>
+{% endblock %}
+
+{% block content %}
+    <p>{% placeholder "content" %}</p>
+{% endblock %}

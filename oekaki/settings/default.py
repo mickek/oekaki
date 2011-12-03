@@ -1,5 +1,12 @@
+import os
+
 DEBUG = True
 TEMPLATE_DEBUG = DEBUG
+
+PROJECT_DIR = os.path.abspath(os.path.dirname(__file__))
+
+# 1 dir up because settings is also django app
+ROOT_DIR = os.path.abspath(os.path.dirname(os.path.dirname(__file__)))
 
 ADMINS = (
     ('Miaka', 'miakaaa@gmail.com'),
@@ -76,7 +83,6 @@ SECRET_KEY = '@ei90c#1l730c5ru0*2$1zuqr90^fy3_4(wyys&^3ojqqytkwy'
 TEMPLATE_LOADERS = (
     'django.template.loaders.filesystem.Loader',
     'django.template.loaders.app_directories.Loader',
-#     'django.template.loaders.eggs.Loader',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -85,14 +91,30 @@ MIDDLEWARE_CLASSES = (
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
+
+    'cms.middleware.page.CurrentPageMiddleware',
+    'cms.middleware.user.CurrentUserMiddleware',
+    'cms.middleware.toolbar.ToolbarMiddleware',
 )
 
 ROOT_URLCONF = 'urls'
 
 TEMPLATE_DIRS = (
-    # Put strings here, like "/home/html/django_templates" or "C:/www/django/templates".
-    # Always use forward slashes, even on Windows.
-    # Don't forget to use absolute paths, not relative paths.
+    os.path.join(ROOT_DIR, 'templates'),
+)
+
+TEMPLATE_CONTEXT_PROCESSORS = (
+    'django.core.context_processors.debug',
+    'django.core.context_processors.media',
+    'django.core.context_processors.static',
+    'django.core.context_processors.auth',
+    'django.core.context_processors.i18n',
+    'django.core.context_processors.request',
+    'django.contrib.auth.context_processors.auth',
+    'django.contrib.messages.context_processors.messages',
+
+    'cms.context_processors.media',
+    'sekizai.context_processors.sekizai',
 )
 
 INSTALLED_APPS = (
@@ -102,9 +124,34 @@ INSTALLED_APPS = (
     'django.contrib.sites',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    # Uncomment the next line to enable the admin:
     'django.contrib.admin',
+
+    'django.contrib.webdesign',
+    'south',
+
+    'cms',
+    'menus',
+    'mptt',
+
+    'cms.plugins.text',
+    'cms.plugins.file',
+    'cms.plugins.flash',
+    'cms.plugins.googlemap',
+    'cms.plugins.link',
+    'cms.plugins.picture',
+    'cms.plugins.snippet',
+    'cms.plugins.teaser',
+    'cms.plugins.video',
+    'cms.plugins.twitter',
+
+    'sekizai',
 )
+
+CMS_TEMPLATES = (
+    ('index.html', 'index'),
+)
+CMS_SEO_FIELDS = True
+
 
 # A sample logging configuration. The only tangible logging
 # performed by this configuration is to send an email to
@@ -128,3 +175,7 @@ LOGGING = {
         },
     }
 }
+
+LANGUAGES = [
+    ('en', 'English'),
+]

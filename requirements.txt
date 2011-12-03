@@ -3,3 +3,4 @@ django-cms
 django-sekizai
 django-mptt
 django-classy-tags
+PIL

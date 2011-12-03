@@ -3,3 +3,4 @@ python oekaki/manage.py syncdb --noinput
 python mkadmin.py
 mkdir -p /home/dotcloud/data/media /home/dotcloud/data/static
 python oekaki/manage.py collectstatic --noinput
+python oekaki/manage.py migrate
