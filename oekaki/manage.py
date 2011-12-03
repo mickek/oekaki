@@ -4,7 +4,7 @@ import os
 from django.core.management import execute_manager
 
 
-DEFAULT_SETTING_MODULE = 'settings.development'
+DEFAULT_SETTING_MODULE = 'settings.stable'
 
 
 def import_settings():
