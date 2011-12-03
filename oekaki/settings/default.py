@@ -1,28 +1,11 @@
-# Django settings for hellodjango project.
-
-import json
-with open('/home/dotcloud/environment.json') as f:
-  env = json.load(f)
-
 DEBUG = True
 TEMPLATE_DEBUG = DEBUG
 
 ADMINS = (
-    # ('Your Name', 'your_email@example.com'),
+    ('Miaka', 'miakaaa@gmail.com'),
 )
 
 MANAGERS = ADMINS
-
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'hellodjango',
-        'USER': env['DOTCLOUD_DB_MYSQL_LOGIN'],
-        'PASSWORD': env['DOTCLOUD_DB_MYSQL_PASSWORD'],
-        'HOST': env['DOTCLOUD_DB_MYSQL_HOST'],
-        'PORT': int(env['DOTCLOUD_DB_MYSQL_PORT']),
-    }
-}
 
 # Local time zone for this installation. Choices can be found here:
 # http://en.wikipedia.org/wiki/List_of_tz_zones_by_name
@@ -104,7 +87,7 @@ MIDDLEWARE_CLASSES = (
     'django.contrib.messages.middleware.MessageMiddleware',
 )
 
-ROOT_URLCONF = 'hellodjango.urls'
+ROOT_URLCONF = 'urls'
 
 TEMPLATE_DIRS = (
     # Put strings here, like "/home/html/django_templates" or "C:/www/django/templates".
@@ -121,8 +104,6 @@ INSTALLED_APPS = (
     'django.contrib.staticfiles',
     # Uncomment the next line to enable the admin:
     'django.contrib.admin',
-    # Uncomment the next line to enable admin documentation:
-    # 'django.contrib.admindocs',
 )
 
 # A sample logging configuration. The only tangible logging
