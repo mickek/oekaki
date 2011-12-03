@@ -7,7 +7,7 @@ with open('/home/dotcloud/environment.json') as f:
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'hellodjango',
+        'NAME': 'oekaki',
         'USER': env['DOTCLOUD_DB_MYSQL_LOGIN'],
         'PASSWORD': env['DOTCLOUD_DB_MYSQL_PASSWORD'],
         'HOST': env['DOTCLOUD_DB_MYSQL_HOST'],
